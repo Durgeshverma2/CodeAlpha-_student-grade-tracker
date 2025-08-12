@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Table</title>
+    <style>
+    
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007acc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px;
+        }
+        .button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .btn {
+            text-decoration: none;
+            background-color: #007acc;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #005f99;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <caption>Student Summary</caption>
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>Sex</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="Student : ${employs}">
+                <td th:text="${Student.id}"></td>
+                <td th:text="${Student.name}"></td>
+                <td th:text="${Student.number}"></td>
+                <td th:text="${Student.sex}"></td>
+                <td th:text="${Student.city}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Minimum Marks</th>
+                <th>Maximum Marks</th>
+                <th>Average Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${minNumber}"></td>
+                <td th:text="${maxNumber}"></td>
+                <td th:text="${avgNumber}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Centered button at the bottom -->
+    <div class="button-container">
+        <a href="/myapplication/addStudent" class="btn">Add Student</a>
+    </div>
+    
+
+</body>
+</html>
